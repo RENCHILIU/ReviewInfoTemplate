@@ -1,41 +1,49 @@
 import Foundation
+import UIKit
 
 class FormDataManager {
-    private(set) var sections: [FormSectionType] = []
     
-    /// 存储每个字段 key 对应的输入值
+    var cardName: String = ""
+    var userName: String = ""
+    var cardImage: UIImage? = nil
+    
+    private(set) var sections: [FormSection] = []
     private var values: [String: String] = [:]
     
-    // 配置所有表单 section
-    func configure(with sectionTypes: [FormSectionType]) {
-        sections = sectionTypes
+    func configure(with sections: [FormSection]) {
+        self.sections = sections
     }
     
-    // section 相关
-    func numberOfSections() -> Int {
-        return sections.count
-    }
-    
-    func section(at index: Int) -> FormSectionType {
-        return sections[index]
-    }
-    
+    func numberOfSections() -> Int { sections.count }
+    func section(at index: Int) -> FormSection { sections[index] }
     func fields(in section: Int) -> [FormFieldType] {
-        return sections[section].fields
+        return sections[section].fields.map { $0.fieldType }
+    }
+    func value(for field: FormFieldType) -> String? { values[field.key] }
+    func updateValue(for field: FormFieldType, value: String) { values[field.key] = value }
+    func allValues() -> [String: String] { values }
+    
+    func configureCardInfo(cardName: String, userName: String, cardImage: UIImage?) {
+        self.cardName = cardName
+        self.userName = userName
+        self.cardImage = cardImage
     }
     
-    // 获取字段值
-    func value(for field: FormFieldType) -> String? {
-        return values[field.key]
-    }
-    
-    // 更新字段值
-    func updateValue(for field: FormFieldType, value: String) {
-        values[field.key] = value
-    }
-    
-    // 获取所有已填数据（可用于提交）
-    func allValues() -> [String: String] {
-        return values
+    // 重点：类型安全的 updateSection
+    func updateSection(at sectionIndex: Int) {
+        let section = sections[sectionIndex]
+        switch section.type {
+        case .personal:
+            print("Update: Personal Info Section")
+            // TODO: 业务逻辑
+        case .contact:
+            print("Update: Contact Info Section")
+        case .financial:
+            print("Update: Financial Info Section")
+        case .security:
+            print("Update: Security Section")
+        case .authorizedUser:
+            print("Update: Authorized User Section")
+        }
     }
 }

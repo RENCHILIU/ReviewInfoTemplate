@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5221B07F2E0F94B50025313B /* TestRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5221B07E2E0F94B50025313B /* TestRootViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5221B0352E0F8D400025313B /* ReviewInfoTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReviewInfoTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5221B07E2E0F94B50025313B /* TestRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		5221B02C2E0F8D400025313B = {
 			isa = PBXGroup;
 			children = (
+				5221B07E2E0F94B50025313B /* TestRootViewController.swift */,
 				5221B0372E0F8D400025313B /* ReviewInfoTemplate */,
 				5221B0362E0F8D400025313B /* Products */,
 			);
@@ -132,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5221B07F2E0F94B50025313B /* TestRootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
